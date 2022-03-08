@@ -16,6 +16,8 @@ public interface PriceRestMapper {
      * @return Object of PriceResponse class.
      */
     @Mapping(target="price", source="productPrice")
-    PriceResponse toPriceResponse(Price price);
+    @Mapping(target="startDate", source="rangeDate.startDate")
+    @Mapping(target="endDate", source="rangeDate.endDate")
+    PriceResponse toResponse(Price price);
 
 }

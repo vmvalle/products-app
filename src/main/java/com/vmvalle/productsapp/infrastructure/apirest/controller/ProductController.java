@@ -37,7 +37,7 @@ public class ProductController implements ProductControllerSwagger {
         log.info("Received request for getPriceProductByBrandInSelectedDate with params: productId: {}, brandId: {}, date: {}", productId, brandId,
                 selectedDate);
 
-        final var price = priceRestMapper.toPriceResponse(productService.calculateProductPrice(productId, brandId, selectedDate));
+        final var price = priceRestMapper.toResponse(productService.calculateProductPrice(productId, brandId, selectedDate));
 
         log.info("Returned price: {}", price);
 

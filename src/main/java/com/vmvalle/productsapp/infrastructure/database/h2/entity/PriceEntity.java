@@ -1,5 +1,6 @@
 package com.vmvalle.productsapp.infrastructure.database.h2.entity;
 
+import com.vmvalle.productsapp.domain.model.Currency;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
@@ -45,7 +46,8 @@ public class PriceEntity {
     private Double productPrice;
 
     @Column(name = "CURR", nullable = false, length = 3)
-    private String currency;
+    @Enumerated(value = EnumType.STRING)
+    private Currency currency;
 
     @Override
     public boolean equals(Object o) {

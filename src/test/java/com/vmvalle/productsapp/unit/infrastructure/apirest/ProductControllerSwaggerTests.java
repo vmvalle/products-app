@@ -39,7 +39,7 @@ public class ProductControllerSwaggerTests {
         var selectedDate = LocalDateTime.of(2022, Month.JUNE, 14, 0, 0, 0);
 
         when(service.calculateProductPrice(productId, brandId, selectedDate)).thenReturn(mock(Price.class));
-        when(mapper.toPriceResponse(any(Price.class))).thenReturn(mock(PriceResponse.class));
+        when(mapper.toResponse(any(Price.class))).thenReturn(mock(PriceResponse.class));
 
         // when
         var price = controller.getPriceProductByBrandInSelectedDate(productId, brandId, selectedDate);

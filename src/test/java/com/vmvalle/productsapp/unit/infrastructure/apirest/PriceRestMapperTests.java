@@ -23,14 +23,14 @@ public class PriceRestMapperTests {
         final var price = generator.nextObject(Price.class);
 
         // when
-        var priceResponse = mapper.toPriceResponse(price);
+        var priceResponse = mapper.toResponse(price);
 
         // then
         assertEquals(priceResponse.getProductId(), price.getProductId());
         assertEquals(priceResponse.getBrandId(), price.getBrandId());
         assertEquals(priceResponse.getRateId(), price.getRateId());
-        assertEquals(priceResponse.getStartDate(), price.getStartDate());
-        assertEquals(priceResponse.getEndDate(), price.getEndDate());
+        assertEquals(priceResponse.getStartDate(), price.getRangeDate().getStartDate());
+        assertEquals(priceResponse.getEndDate(), price.getRangeDate().getEndDate());
         assertEquals(priceResponse.getPrice(), price.getProductPrice());
     }
 

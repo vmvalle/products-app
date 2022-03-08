@@ -2,6 +2,7 @@ package com.vmvalle.productsapp.unit.application;
 
 import com.vmvalle.productsapp.domain.exception.ResourceNotFoundException;
 import com.vmvalle.productsapp.domain.model.Price;
+import com.vmvalle.productsapp.domain.model.RangeDate;
 import com.vmvalle.productsapp.domain.repository.PriceRepository;
 import com.vmvalle.productsapp.domain.service.ProductService;
 import org.junit.jupiter.api.BeforeEach;
@@ -33,7 +34,10 @@ class ProductUseCaseTests {
     private Integer brandId;
 
     private Price price1;
+    private RangeDate rangeDate1;
+
     private Price price2;
+    private RangeDate rangeDate2;
 
     @BeforeEach
     public void setUp() {
@@ -41,14 +45,18 @@ class ProductUseCaseTests {
         brandId = 1;
 
         price1 = mock(Price.class);
-        when(price1.getStartDate()).thenReturn(LocalDateTime.of(2020, Month.JUNE, 14, 0, 0, 0));
-        when(price1.getEndDate()).thenReturn(LocalDateTime.of(2021, Month.JANUARY, 1, 0, 0, 0));
+        rangeDate1 = mock(RangeDate.class);
+        when(rangeDate1.getStartDate()).thenReturn(LocalDateTime.of(2020, Month.JUNE, 14, 0, 0, 0));
+        when(rangeDate1.getEndDate()).thenReturn(LocalDateTime.of(2021, Month.JANUARY, 1, 0, 0, 0));
+        when(price1.getRangeDate()).thenReturn(rangeDate1);
         when(price1.getPriority()).thenReturn(0);
         when(price1.getProductPrice()).thenReturn(25.00);
 
         price2 = mock(Price.class);
-        when(price2.getStartDate()).thenReturn(LocalDateTime.of(2020, Month.JUNE, 14, 15, 0, 0));
-        when(price2.getEndDate()).thenReturn(LocalDateTime.of(2021, Month.JANUARY, 1, 0, 0, 0));
+        rangeDate2 = mock(RangeDate.class);
+        when(rangeDate2.getStartDate()).thenReturn(LocalDateTime.of(2020, Month.JUNE, 14, 15, 0, 0));
+        when(rangeDate2.getEndDate()).thenReturn(LocalDateTime.of(2021, Month.JANUARY, 1, 0, 0, 0));
+        when(price2.getRangeDate()).thenReturn(rangeDate2);
         when(price2.getPriority()).thenReturn(1);
         when(price2.getProductPrice()).thenReturn(20.99);
     }

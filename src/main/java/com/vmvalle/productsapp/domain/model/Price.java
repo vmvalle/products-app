@@ -5,8 +5,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.time.LocalDateTime;
-
 @Getter
 @Setter
 @ToString
@@ -17,9 +15,7 @@ public class Price {
 
     private Integer brandId;
 
-    private LocalDateTime startDate;
-
-    private LocalDateTime endDate;
+    private RangeDate rangeDate;
 
     private Integer rateId;
 
@@ -29,6 +25,6 @@ public class Price {
 
     private Double productPrice;
 
-    private String currency;
+    private Currency currency;
 
 }
