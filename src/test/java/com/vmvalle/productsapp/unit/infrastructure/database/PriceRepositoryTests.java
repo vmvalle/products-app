@@ -1,7 +1,7 @@
 package com.vmvalle.productsapp.unit.infrastructure.database;
 
-import com.vmvalle.productsapp.domain.entity.Price;
 import com.vmvalle.productsapp.domain.repository.PriceRepository;
+import com.vmvalle.productsapp.infrastructure.database.h2.entity.PriceEntity;
 import com.vmvalle.productsapp.infrastructure.database.h2.repository.PriceH2Repository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +32,7 @@ class PriceRepositoryTests {
         var brandId = 1;
         var selectedDate = LocalDateTime.of(2022, Month.JUNE, 14, 0, 0, 0);
 
-        var listPrices = List.of(mock(Price.class));
+        var listPrices = List.of(mock(PriceEntity.class));
         when(priceH2Repository.findPricesByProductIdAndBrandIdOnSelectedDate(productId, brandId, selectedDate)).thenReturn(listPrices);
 
         // when
