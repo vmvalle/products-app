@@ -1,4 +1,4 @@
-package com.vmvalle.productsapp.domain.entity;
+package com.vmvalle.productsapp.infrastructure.database.h2.entity;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -16,7 +16,7 @@ import java.util.Objects;
 @RequiredArgsConstructor
 @Entity
 @Table(name = "PRICES")
-public class Price {
+public class PriceEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -53,8 +53,8 @@ public class Price {
             return true;
         if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o))
             return false;
-        Price price = (Price) o;
-        return Objects.equals(id, price.id);
+        PriceEntity priceEntity = (PriceEntity) o;
+        return Objects.equals(id, priceEntity.id);
     }
 
     @Override

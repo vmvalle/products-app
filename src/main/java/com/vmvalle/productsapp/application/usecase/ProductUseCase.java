@@ -1,7 +1,7 @@
-package com.vmvalle.productsapp.application.impl;
+package com.vmvalle.productsapp.application.usecase;
 
-import com.vmvalle.productsapp.application.ProductService;
-import com.vmvalle.productsapp.domain.entity.Price;
+import com.vmvalle.productsapp.domain.service.ProductService;
+import com.vmvalle.productsapp.domain.model.Price;
 import com.vmvalle.productsapp.domain.exception.ResourceNotFoundException;
 import com.vmvalle.productsapp.domain.repository.PriceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +12,7 @@ import java.util.Comparator;
 
 
 @Service
-public class ProductServiceImpl implements ProductService {
+public class ProductUseCase implements ProductService {
 
     private final PriceRepository repository;
 
@@ -22,7 +22,7 @@ public class ProductServiceImpl implements ProductService {
      * @param repository Repository of Price
      */
     @Autowired
-    public ProductServiceImpl(PriceRepository repository) {
+    public ProductUseCase(PriceRepository repository) {
         this.repository = repository;
     }
 

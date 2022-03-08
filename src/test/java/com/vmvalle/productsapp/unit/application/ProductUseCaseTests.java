@@ -1,9 +1,9 @@
 package com.vmvalle.productsapp.unit.application;
 
-import com.vmvalle.productsapp.application.ProductService;
-import com.vmvalle.productsapp.domain.entity.Price;
 import com.vmvalle.productsapp.domain.exception.ResourceNotFoundException;
-import com.vmvalle.productsapp.infrastructure.database.h2.repository.PriceH2Repository;
+import com.vmvalle.productsapp.domain.model.Price;
+import com.vmvalle.productsapp.domain.repository.PriceRepository;
+import com.vmvalle.productsapp.domain.service.ProductService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,13 +21,13 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 @SpringBootTest
-class ProductServiceTests {
+class ProductUseCaseTests {
 
     @Autowired
     private ProductService service;
 
     @MockBean
-    private PriceH2Repository repository;
+    private PriceRepository repository;
 
     private Long productId;
     private Integer brandId;

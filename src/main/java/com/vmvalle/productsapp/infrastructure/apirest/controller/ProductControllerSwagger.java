@@ -1,7 +1,7 @@
-package com.vmvalle.productsapp.infrastructure.apirest;
+package com.vmvalle.productsapp.infrastructure.apirest.controller;
 
 import com.vmvalle.productsapp.infrastructure.apirest.dto.PriceResponse;
-import com.vmvalle.productsapp.domain.entity.Price;
+import com.vmvalle.productsapp.domain.model.Price;
 import com.vmvalle.productsapp.infrastructure.apirest.exception.ErrorResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -20,7 +20,7 @@ import java.time.LocalDateTime;
 
 @RequestMapping("/products")
 @Tag(name = "Products")
-public interface ProductController {
+public interface ProductControllerSwagger {
 
     /**
      * GET endpoint for calculate price by product identifier, brand identifier and selected date.

@@ -1,10 +1,10 @@
 package com.vmvalle.productsapp.unit.infrastructure.apirest;
 
-import com.vmvalle.productsapp.application.ProductService;
-import com.vmvalle.productsapp.domain.entity.Price;
-import com.vmvalle.productsapp.infrastructure.apirest.ProductController;
+import com.vmvalle.productsapp.domain.service.ProductService;
+import com.vmvalle.productsapp.domain.model.Price;
+import com.vmvalle.productsapp.infrastructure.apirest.controller.ProductControllerSwagger;
 import com.vmvalle.productsapp.infrastructure.apirest.dto.PriceResponse;
-import com.vmvalle.productsapp.infrastructure.apirest.mapper.PriceMapper;
+import com.vmvalle.productsapp.infrastructure.apirest.mapper.PriceRestMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -20,16 +20,16 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 @SpringBootTest
-public class ProductControllerTests {
+public class ProductControllerSwaggerTests {
 
     @Autowired
-    private ProductController controller;
+    private ProductControllerSwagger controller;
 
     @MockBean
     private ProductService service;
 
     @MockBean
-    private PriceMapper mapper;
+    private PriceRestMapper mapper;
 
     @Test
     void shouldGetPriceProductByBrandInSelectedDate() {

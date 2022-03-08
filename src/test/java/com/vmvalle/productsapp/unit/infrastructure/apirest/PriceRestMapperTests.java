@@ -1,7 +1,7 @@
 package com.vmvalle.productsapp.unit.infrastructure.apirest;
 
-import com.vmvalle.productsapp.domain.entity.Price;
-import com.vmvalle.productsapp.infrastructure.apirest.mapper.PriceMapper;
+import com.vmvalle.productsapp.domain.model.Price;
+import com.vmvalle.productsapp.infrastructure.apirest.mapper.PriceRestMapper;
 import org.jeasy.random.EasyRandom;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,10 +10,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
-public class PriceMapperTests {
+public class PriceRestMapperTests {
 
     @Autowired
-    private PriceMapper mapper;
+    private PriceRestMapper mapper;
 
     private EasyRandom generator = new EasyRandom();
 

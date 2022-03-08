@@ -4,10 +4,10 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
 import com.vmvalle.productsapp.infrastructure.apirest.dto.PriceResponse;
-import com.vmvalle.productsapp.domain.entity.Price;
+import com.vmvalle.productsapp.domain.model.Price;
 
 @Mapper(componentModel = "spring")
-public interface PriceMapper {
+public interface PriceRestMapper {
 
     /**
      * Map Price object to PriceResponse.

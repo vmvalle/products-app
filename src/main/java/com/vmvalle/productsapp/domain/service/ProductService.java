@@ -1,6 +1,6 @@
-package com.vmvalle.productsapp.application;
+package com.vmvalle.productsapp.domain.service;
 
-import com.vmvalle.productsapp.domain.entity.Price;
+import com.vmvalle.productsapp.domain.model.Price;
 
 import java.time.LocalDateTime;
 
