@@ -1,5 +1,6 @@
 package com.vmvalle.productsapp.unit.application;
 
+import com.vmvalle.productsapp.application.usecase.ProductUseCase;
 import com.vmvalle.productsapp.domain.exception.ResourceNotFoundException;
 import com.vmvalle.productsapp.domain.model.Price;
 import com.vmvalle.productsapp.domain.model.RangeDate;
@@ -7,9 +8,10 @@ import com.vmvalle.productsapp.domain.repository.PriceRepository;
 import com.vmvalle.productsapp.domain.service.ProductService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.LocalDateTime;
 import java.time.Month;
@@ -18,17 +20,14 @@ import java.util.Collections;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
-@SpringBootTest
+@ExtendWith(MockitoExtension.class)
 class ProductUseCaseTests {
 
-    @Autowired
-    private ProductService service;
+    private PriceRepository repository = mock(PriceRepository.class);
 
-    @MockBean
-    private PriceRepository repository;
+    private ProductService service = new ProductUseCase(repository);
 
     private Long productId;
     private Integer brandId;
@@ -46,19 +45,19 @@ class ProductUseCaseTests {
 
         price1 = mock(Price.class);
         rangeDate1 = mock(RangeDate.class);
-        when(rangeDate1.getStartDate()).thenReturn(LocalDateTime.of(2020, Month.JUNE, 14, 0, 0, 0));
-        when(rangeDate1.getEndDate()).thenReturn(LocalDateTime.of(2021, Month.JANUARY, 1, 0, 0, 0));
-        when(price1.getRangeDate()).thenReturn(rangeDate1);
-        when(price1.getPriority()).thenReturn(0);
-        when(price1.getProductPrice()).thenReturn(25.00);
+        lenient().when(rangeDate1.getStartDate()).thenReturn(LocalDateTime.of(2020, Month.JUNE, 14, 0, 0, 0));
+        lenient().when(rangeDate1.getEndDate()).thenReturn(LocalDateTime.of(2021, Month.JANUARY, 1, 0, 0, 0));
+        lenient().when(price1.getRangeDate()).thenReturn(rangeDate1);
+        lenient().when(price1.getPriority()).thenReturn(0);
+        lenient().when(price1.getProductPrice()).thenReturn(25.00);
 
         price2 = mock(Price.class);
         rangeDate2 = mock(RangeDate.class);
-        when(rangeDate2.getStartDate()).thenReturn(LocalDateTime.of(2020, Month.JUNE, 14, 15, 0, 0));
-        when(rangeDate2.getEndDate()).thenReturn(LocalDateTime.of(2021, Month.JANUARY, 1, 0, 0, 0));
-        when(price2.getRangeDate()).thenReturn(rangeDate2);
-        when(price2.getPriority()).thenReturn(1);
-        when(price2.getProductPrice()).thenReturn(20.99);
+        lenient().when(rangeDate2.getStartDate()).thenReturn(LocalDateTime.of(2020, Month.JUNE, 14, 15, 0, 0));
+        lenient().when(rangeDate2.getEndDate()).thenReturn(LocalDateTime.of(2021, Month.JANUARY, 1, 0, 0, 0));
+        lenient().when(price2.getRangeDate()).thenReturn(rangeDate2);
+        lenient().when(price2.getPriority()).thenReturn(1);
+        lenient().when(price2.getProductPrice()).thenReturn(20.99);
     }
 
     @Test

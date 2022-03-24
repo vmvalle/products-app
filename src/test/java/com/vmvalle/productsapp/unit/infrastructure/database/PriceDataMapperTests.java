@@ -2,20 +2,20 @@ package com.vmvalle.productsapp.unit.infrastructure.database;
 
 import com.vmvalle.productsapp.infrastructure.database.h2.entity.PriceEntity;
 import com.vmvalle.productsapp.infrastructure.database.h2.mapper.PriceDataMapper;
+import com.vmvalle.productsapp.infrastructure.database.h2.mapper.PriceDataMapperImpl;
 import org.jeasy.random.EasyRandom;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@SpringBootTest
+@ExtendWith(MockitoExtension.class)
 public class PriceDataMapperTests {
 
-    @Autowired
-    private PriceDataMapper mapper;
+    private PriceDataMapper mapper = new PriceDataMapperImpl();
 
     private EasyRandom generator = new EasyRandom();
 

@@ -2,18 +2,18 @@ package com.vmvalle.productsapp.unit.infrastructure.apirest;
 
 import com.vmvalle.productsapp.domain.model.Price;
 import com.vmvalle.productsapp.infrastructure.apirest.mapper.PriceRestMapper;
+import com.vmvalle.productsapp.infrastructure.apirest.mapper.PriceRestMapperImpl;
 import org.jeasy.random.EasyRandom;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@SpringBootTest
+@ExtendWith(MockitoExtension.class)
 public class PriceRestMapperTests {
 
-    @Autowired
-    private PriceRestMapper mapper;
+    private PriceRestMapper mapper = new PriceRestMapperImpl();
 
     private EasyRandom generator = new EasyRandom();
 
